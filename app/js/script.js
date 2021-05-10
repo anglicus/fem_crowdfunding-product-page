@@ -79,7 +79,7 @@ $(document).ready(function() {
     });
 
     $("button.btn-select-reward").on("click", function() {
-        const reward = $(this).attr("reward");
+        const reward = $(this).parent().attr("reward");
         const radio = $("input:radio#" + reward);
         radio.prop("checked", true).change();
         $("div.modal-back-project").toggleClass("modal-hide");
@@ -113,6 +113,7 @@ $(document).ready(function() {
         const pledgeMin = Math.max(input.attr("value"), 0.01);
         const pledgeVal = input.val();
         const pledgeMsg = $(this).siblings(".pledge-message");
+        const reward = $(this).parent().attr("reward");
         console.log("pledge val is", pledgeVal);
         pledgeMsg.removeClass("warn-pledge");
         pledgeMsg.text("Enter your pledge");
@@ -126,7 +127,7 @@ $(document).ready(function() {
                 pledgeMsg.text(p);
                 pledgeMsg.addClass("warn-pledge");
             } else {
-                updatePledgeStats($(this).attr("reward"), pledgeVal);
+                updatePledgeStats(reward, pledgeVal);
                 // close this modal and open the thank you
                 $(".modal-back-project").addClass("modal-hide");
                 $(".modal-success").removeClass("modal-hide");
