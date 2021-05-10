@@ -41,7 +41,7 @@
       <div class="button-div">
       <button class="btn-back-project">Back this project</button>
         <button class="btn-bookmark" title="bookmark">
-          <svg class="bookmark-icon" alt="bookmark icon" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+          <svg class="bookmark-icon" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fill-rule="evenodd">
               <circle fill="#2F2F2F" cx="28" cy="28" r="28"/>
               <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/>
@@ -90,7 +90,7 @@
         </p>
       </div>
       <div class="project-rewards">
-          <div class="reward bamboo-stand">
+          <div class="reward bamboo-stand" reward="bamboo-stand">
             <h3 class="reward-title">Bamboo Stand</h3>
             <h4 class="pledge-min">Pledge $25 or more</h4>
             <p class="reward-description">
@@ -98,10 +98,10 @@
               you’ll be added to a special Backer member list.
             </p>
             <p class="rewards-left"><span class="left-value bamboo-stand bold-value">101</span> left</p>
-            <button class="btn-select-reward" reward="bamboo-stand">Select Reward</button>
+            <button class="btn-select-reward">Select Reward</button>
           </div>
 
-          <div class="reward black-edition-stand">
+          <div class="reward black-edition-stand" reward="black-edition-stand">
             <h3 class="reward-title">Black Edition Stand</h3>
             <h4 class="pledge-min">Pledge $75 or more</h4>
             <p class="reward-description">
@@ -109,10 +109,10 @@
               member list. Shipping is included.
             </p>
             <p class="rewards-left"><span class="left-value black-edition-stand bold-value">64</span> left</p>
-            <button class="btn-select-reward" reward="black-edition-stand">Select Reward</button>
+            <button class="btn-select-reward">Select Reward</button>
           </div>
 
-          <div class="reward mahogany-special-edition sold-out">
+          <div class="reward mahogany-special-edition sold-out" reward="mahogany-special-edition">
             <h3 class="reward-title">Mahogany Special Edition</h3>
             <h4 class="pledge-min">Pledge $200 or more</h4>
             <p class="reward-description">
@@ -120,7 +120,7 @@
               to our Backer member list. Shipping is included.
             </p>
             <p class="rewards-left"><span class="left-value mahogany-special-edition bold-value">0</span> left</p>
-            <button class="btn-select-reward" reward="mahogany-special-edition">Out of stock</button>
+            <button class="btn-select-reward">Out of stock</button>
           </div>
       </div>
     </section>
@@ -139,13 +139,13 @@
           <h1 id="scrolltome">Back this project</h1> 
           <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
           <button class="btn-close-modal" title="close back project">
-            <svg alt="icon close modal" width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z" fill="#000" fill-rule="evenodd" opacity=".4"/></svg>
+            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z" fill="#000" fill-rule="evenodd" opacity=".4"/></svg>
           </button>
           <div class="pledge">
                 <div class="pledge-details">
                   <div class="pledge-title-div" id="nop">
                     <input type="radio" class="radio-pledge" id="no-reward" name="pledge" value="no-reward">
-                    <label for="no-reward"><div class="radio-dot"></div></label>
+                    <label for="no-reward"><span class="radio-dot"></span></label>
                     <h3 class="pledge-title">Pledge with no reward</h3>
                   </div>
                   <p>
@@ -153,10 +153,10 @@
                     you will be signed up to receive product updates via email.
                   </p>
                 </div>
-                <div class="pledge-input-div">
+                <div class="pledge-input-div" reward="no-reward">
                   <p class="pledge-message">Enter your pledge</p>
                   <div class="pledge-input-wrapper"><span class="input-dollar-sign">$</span><input class="pledge-input" type="text" name="pledge-amount" value="0" title="input pledge"></div>
-                  <button class="btn-submit-pledge" reward="no-reward">Continue</button>
+                  <button class="btn-submit-pledge">Continue</button>
                 </div>
           </div>
           <div class="pledge bamboo-stand">
@@ -174,10 +174,10 @@
                   </p>
                 <p class="rewards-left"><span class="left-value bamboo-stand bold-value">101</span> left</p>
                 </div>
-                <div class="pledge-input-div">
+                <div class="pledge-input-div" reward="bamboo-stand">
                   <p class="pledge-message">Enter your pledge</p>
                   <div class="pledge-input-wrapper"><span class="input-dollar-sign">$</span><input class="pledge-input" type="text" name="pledge-amount" value="25" title="input pledge"></div>
-                  <button class="btn-submit-pledge" reward="bamboo-stand">Continue</button>
+                  <button class="btn-submit-pledge">Continue</button>
                 </div>
           </div>
           <div class="pledge black-edition-stand">
@@ -195,10 +195,10 @@
                 </p>
                 <p class="rewards-left"><span class="left-value black-edition-stand bold-value">64</span> left</p>
             </div>
-              <div class="pledge-input-div">
+              <div class="pledge-input-div" reward="black-edition-stand">
                 <p class="pledge-message">Enter your pledge</p>
                 <div class="pledge-input-wrapper"><span class="input-dollar-sign">$</span><input class="pledge-input" type="text" name="pledge-amount" value="75" title="input pledge"></div>
-                <button class="btn-submit-pledge" reward="black-edition-stand">Continue</button>
+                <button class="btn-submit-pledge">Continue</button>
               </div>
           </div>
           <div class="pledge mahogany-special-edition sold-out">
@@ -217,10 +217,10 @@
               </p>
               <p class="rewards-left"><span class="left-value mahogany-special-edition bold-value">0</span> left</p>
             </div>
-              <div class="pledge-input-div">
+              <div class="pledge-input-div" reward="mahogany-special-edition">
                 <p class="pledge-message">Enter your pledge</p>
                 <div class="pledge-input-wrapper"><span class="input-dollar-sign">$</span><input class="pledge-input" type="text" name="pledge-amount" value="200" title="input pledge"></div>
-                <button class="btn-submit-pledge" reward="mahogany-special-edition">Continue</button>
+                <button class="btn-submit-pledge">Continue</button>
               </div>
           </div>
         </section>
