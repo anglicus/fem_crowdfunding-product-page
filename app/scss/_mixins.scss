@@ -1,0 +1,52 @@
+
+
+// Breakpoints
+$breakpoints-up: ("medium": "501px", "large": "751px");
+$breakpoints-down: ("small": "500px", "medium": "750px");
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}
+
+@mixin bg-matching {
+    background-color: transparent;
+    background-image: url('/design/background-dt.jpg');
+    background-size: auto;
+
+    @include breakpoint-down(small) {
+        background-image: url('/design/background-m.jpg');
+    }
+}
+
+@mixin flex($direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin cta-cyan($width, $height, $fontSize) {
+    font-size: $fontSize;
+    font-weight: 700;
+    color: white;
+    background-color: $moderateCyan;
+
+    width: $width;
+    height: $height;
+
+    border: none;
+    border-radius: $height/2;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $darkCyan;
+    }
+}

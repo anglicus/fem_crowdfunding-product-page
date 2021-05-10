@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+html {
+    font-family: 'Commissioner', sans-serif;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $lightGray;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p {
+    font-size: $font-med;
+    color: $darkGray;
+}
+
+h1 {
+    font-size: $font-xll;
+}
+
+h2 {
+    font-size: $font-lg;
+}
+
+h3 {
+    font-size: $font-ml;
+}
+
+h4 {
+    font-size: $font-smed;
+}
+
+.bold-value {
+    font-weight: 700;
+    font-size: $font-xxl;
+    color: black;
+}
+
+@include breakpoint-down(small) {
+
+    p {
+        font-size: $font-sm;
+    }
+
+    h1 {
+        font-size: $font-lg;
+    }
+
+    h2 {
+        font-size: $font-ml;
+    }
+
+    h3 {
+        font-size: $font-sm;
+    }
+
+    h4 {
+        font-size: $font-sm;
+    }
+
+    .bold-value {
+        font-size: $font-xl;
+    }
+}
+
+section {
+    position: relative;
+    background-color: white;
+    border: 1px solid $borderGray;
+    border-radius: 8px;
+    width: 730px;
+    padding: 2.875rem;
+    margin-bottom: 1.625rem;
+
+    @include breakpoint-down(medium) {
+        width: 86.7%;
+    }
+
+    @include breakpoint-down(small) {
+        padding: px-rem(22);
+    }
+
+    &:last-of-type {
+        margin-bottom: 7.75rem;
+    }
+}
+
+
+.attribution { font-size: 12px; text-align: center; margin-bottom: 24px;}
+.attribution a { color: hsl(228, 45%, 44%); }

@@ -1,0 +1,121 @@
+header {
+    background-image: url('/images/image-hero-desktop.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 400px;
+    padding: px-rem(41) 11.4% 0;
+
+    @include breakpoint-down(medium) {
+        background-image: url('/images/image-hero-mobile.jpg');
+        background-size: 100%;
+    }
+
+    @include breakpoint-down(small) {
+        height: 300px;
+        padding: 22px 22px 0;
+
+        .mobile-hide {
+            display: none;
+        }
+
+    }
+
+    a {
+        color: white;
+    }
+
+    nav {
+
+        @include flex(row, center, space-between);
+    
+        .crowdfund-home {
+            z-index: 2;
+            font-weight: 700;
+            font-size: $font-xl;
+
+        }
+
+        .nav-link {
+            font-size: $font-xs;
+            padding-left: px-rem(32);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .btn-mobile-hamburger {
+            z-index: 2;
+            display: none;
+            position: relative;
+            top: 4px;
+        }
+
+        @include breakpoint-down(small) {
+            .btn-mobile-hamburger {
+                display: block;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .header-links {
+                z-index: 2;
+                @include flex(column, flex-start, center);
+                position: absolute;
+                top: 88px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: white;
+                width: 86.7%;
+                border-radius: 8px;
+                border: 1px solid $borderGray;
+
+
+
+                .nav-link {
+                    color: black;
+                    width: 100%;
+                    height: px-rem(70);
+                    padding: px-rem(24) 24px 0;
+                    font-size: $font-ml;
+                    font-weight: 500;
+                    margin: 0;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $borderGray;
+                    }
+                }
+
+                &.mobile-hide {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+
+    .mobile-menu-background-screen {
+        display: none;
+
+        @include breakpoint-down(small) {
+            z-index: 1;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vh;
+            height: 100vh;
+            background: linear-gradient(180deg, black, $darkGray);
+            opacity: 0.6;
+
+            &.mobile-hide {
+                display: none;
+            }
+        }
+    }
+
+
+
+}

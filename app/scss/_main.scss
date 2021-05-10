@@ -1,0 +1,330 @@
+main {
+    margin-top: -92px;
+    @include flex(column, center, flex-start);
+
+    @include breakpoint-down(small) {
+        margin-top: -56px;
+    }
+
+    section {
+        // *** title section
+        &.project-title {
+            .mastercraft-logo {
+                width: 56px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: -28px;
+            }
+
+            h1, p {
+                text-align: center;
+            }
+
+            h1 {
+                margin: px-rem(8) 0;
+            }
+
+            @include breakpoint-down(small) {
+                h1 {
+                    margin: px-rem(27) px-rem(12) px-rem(18);
+                }
+
+                p {
+                    line-height: 1.5em;
+                }
+            }
+
+            .button-div {
+                @include flex(row, center, space-between);
+                margin-top: px-rem(40);
+
+                @include breakpoint-down(small) {
+                    margin-top: px-rem(28);
+                    margin-bottom: px-rem(12);
+                }
+
+            }
+
+            .btn-back-project {
+                @include cta-cyan(px-rem(204), 56px, $font-med);
+
+                @include breakpoint-down(small) {
+                    @include cta-cyan(px-rem(213), 56px, $font-med);
+                }
+            }
+
+
+
+            .btn-bookmark {
+                overflow: hidden;
+                position: relative;
+                font-size: $font-med;
+                font-weight: 700;
+                color: $darkGray;
+                background-color: $mediumGray;
+            
+                width: px-rem(174);
+                height: 56px;
+                padding-left: 3rem;
+            
+                border: none;
+                border-radius: px-rem(28);
+                cursor: pointer;
+
+                &::after {
+                    content: 'Bookmark';
+
+                    @include breakpoint-down(small) {
+                        content: '';
+                    }
+                }
+
+                @include breakpoint-down(small) {
+                    width: 56px;
+                }
+
+                .bookmark-icon {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+
+                }
+
+                &:hover > .bookmark-icon {
+                    filter: brightness(200%) contrast(50%);
+                }
+
+                &.bookmark-selected {
+                    color: $darkCyan;
+
+                    &::after {
+                        content: 'Boomarked';
+                    }
+
+                    &> .bookmark-icon > g {
+
+                        &> circle {
+                            fill: $darkCyan;
+                        }
+
+                        &> path {
+                            fill: white;
+                        }
+                    }
+                }
+
+            }
+        }
+        // END title section
+        
+
+        // *** stats section
+        &.project-stats {
+            
+            .stat-block-container {
+                @include flex(row, flex-start, flex-start);
+                margin-bottom: px-rem(16);
+
+                @include breakpoint-down(small) {
+                    @include flex(column, center, flex-start);
+                    margin-top: px-rem(4);
+                    margin-bottom: px-rem(6);
+                }
+
+                .stat-block {
+                    width: px-rem(178);
+                    @include flex(column, baseline, flex-start);
+
+                    @include breakpoint-down(small) {
+                        width: auto;
+                        @include flex(column, center, flex-start);
+                        margin: px-rem(8) 0;
+                    }
+
+                    &:not(:first-child) {
+                        width: px-rem(228);
+                        padding-left: px-rem(48);
+
+                        @include breakpoint-down(small) {
+                            padding-left: 0;
+                            padding-top: px-rem(18);
+                        }
+                    }
+
+                    p {
+                        margin-top: 0;
+                        margin-bottom: px-rem(8);
+
+                        @include breakpoint-down(small) {
+                            margin-bottom: px-rem(12);
+                        }
+                    }
+
+                    .stat-label {
+                        font-size: $font-smed;
+
+                        @include breakpoint-down(small) {
+                            font-size: $font-sm;
+                        }
+                    }
+                }
+                .stat-divider {
+                    height: px-rem(64);
+                    border-left: 1px solid $borderGray;
+
+                    @include breakpoint-down(small) {
+                        height: 0;
+                        width: px-rem(80);
+                        border-left: none;
+                        border-top: 1px solid $borderGray;
+                    }
+                }
+
+            }
+
+            .progress-bar {
+                margin-top: px-rem(28);
+                height: 12px;
+                border-radius: 6px;
+                background-color: grey;
+
+                @include breakpoint-down(small) {
+                    margin-top: 0;
+                    margin-bottom: px-rem(16);
+                }
+
+                .progress-total {
+                    height: 100%;
+                    border-radius: inherit;
+                    background-color: $darkCyan;
+                }
+            }
+
+        }
+        // END stats section
+
+        // *** Project details
+        &.project-details {
+
+            .project-about {
+                h2 {
+                    margin-top: 0;
+                    margin-bottom: px-rem(34);
+                }
+
+                p {
+                    line-height: 1.9em;
+                    margin-bottom: px-rem(30);
+                }
+
+                @include breakpoint-down(small) {
+                    h2 {
+                        margin-top: px-rem(14);
+                        margin-bottom: px-rem(24);
+                    }
+
+                    p {
+                        line-height: 1.75em;
+                        margin-bottom: px-rem(22);
+                    }
+                }
+                
+
+            }
+
+
+            // *** reward boxes
+            .project-rewards {
+                margin-top: px-rem(32);
+
+                .reward {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    border: 1px solid $borderGray;
+                    border-radius: 8px;
+                    margin-top: px-rem(24);
+                    padding: px-rem(36) px-rem(32) px-rem(32);
+
+                    @include breakpoint-down(small) {
+                        @include flex(column, flex-start, center);
+                        padding: px-rem(23);
+                    }
+
+                    .reward-title {
+                        align-self: start;
+                        margin: 0;
+
+                        @include breakpoint-down(small) {
+                            margin-bottom: px-rem(6);
+                        }
+
+                    }
+
+                    .pledge-min {
+                        color: $moderateCyan;
+                        font-weight: 400;
+                        text-align: right;
+                        justify-self: end;
+                        margin: 0;
+                    }
+                    .reward-description {
+                        grid-column: 1 / span 2;
+                        margin-top: px-rem(24);
+                        margin-bottom: px-rem(24);
+                        line-height: 1.9em;
+
+                        @include breakpoint-down(small) {
+                            line-height: 1.75;
+                        }
+
+                    }
+
+                    .rewards-left {
+                        margin: 0;
+                        align-self: center;
+                        @include flex(row, center, flex-start);
+
+                        .left-value {
+                            margin-right: 0.25em;
+                        }
+
+                        @include breakpoint-down(small) {
+                            align-self: flex-start;
+                        }
+
+                    }
+
+                    .btn-select-reward {
+                        @include cta-cyan(px-rem(156), px-rem(48), $font-xs);
+                        align-self: center;
+                        justify-self: end;
+
+                        @include breakpoint-down(small) {
+                            align-self: flex-start;
+                            margin-top: px-rem(22);
+                        }
+                    }
+
+                    &.sold-out {
+                        border-color: $mediumGray;
+                        h3, h4, p {
+                            filter: contrast(25%) brightness(125%);
+                        }
+                        pointer-events: none;
+
+                        button {
+                            background-color: $mediumGray;
+                        }
+                    }
+                }
+            }
+            // END reward boxes
+
+        }
+
+    }
+
+}

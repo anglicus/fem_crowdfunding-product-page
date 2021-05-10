@@ -1,0 +1,351 @@
+.modal {
+    .background-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(150, 150, 150, 0.5);
+    }
+
+    p {
+        font-size: $font-smed;
+        line-height: 1.75em;
+        .bold-value {
+            font-size: $font-ml;
+        }
+
+        @include breakpoint-down(small) {
+            font-size: $font-sm;
+        }
+    }
+
+    h1 {
+        margin-top: 0;
+        font-size: $font-llg;
+    }
+  
+    h3 {
+        font-size: $font-med;
+        display: inline;
+    }
+
+    h4 {
+        font-size: $font-med;
+        display: inline;
+        padding-left: px-rem(16);
+    }
+
+    @include breakpoint-down(small) {
+        h3, h4 {
+            font-size: $font-smed;
+            display: block;
+            padding: 0;
+        }
+    }
+
+
+
+    &.modal-hide {
+        display: none;
+    }
+
+    &.modal-back-project {
+
+        .modal-pledges {
+            position: absolute;
+            top: 185px;
+            left: 50%;
+            transform: translateX(-50%);
+
+        .btn-close-modal {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            right: 24px;
+            top: 32px;
+            cursor: pointer;
+
+            @include breakpoint-down(small) {
+                right: 16px;
+            }
+
+            &:hover > svg > path {
+                opacity: 1;
+            }
+
+        }
+
+            .pledge {
+                border: 1px solid $borderGray;
+                border-radius: 8px;
+                margin-top: px-rem(24);
+
+                .pledge-details {
+                    position: relative;
+                    
+                    
+                    padding: px-rem(36) px-rem(24) px-rem(32) px-rem(75);
+
+                    display: grid;
+                    grid-template-areas: 
+                        "ptitle pleft"
+                        "pdescr pdescr";
+                    grid-template-columns: 5fr 1fr;
+                    align-items: baseline;
+
+                    @include breakpoint-down(small) {
+                        @include flex(column, flex-start, center);
+                        padding-left: px-rem(24);
+                    }
+                
+                }
+
+                .pledge-input-div {
+                    position: relative;
+                    display: none; // changes when parent div.pledge is .selected
+                    border-top: 1px solid $borderGray;
+                    padding: px-rem(24);
+
+
+
+                    .pledge-input-wrapper {
+                        position: relative;
+
+                        @include breakpoint-down(small) {
+                            display: inline;
+                        }
+                    }
+
+                    .pledge-message {
+                        width: 350px;
+
+                        @include breakpoint-down(small) {
+                            width: auto;
+                            text-align: center;
+                        }
+                    }
+
+                    .input-dollar-sign {
+                        color: $darkGray;
+                        font-weight: 700;
+                        position: absolute;
+                        left: 20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .pledge-input {
+                        cursor: pointer;
+                        width: px-rem(100);
+                        height: px-rem(48);
+                        border-radius: px-rem(24);
+                        border: 1px solid gray;
+
+                        font-weight: 700;
+                        font-size: $font-sm;
+
+                        caret-color: $moderateCyan;
+
+                        padding-left: px-rem(32);
+
+                        &:focus {
+                            outline: none;
+                            border-color: $moderateCyan;
+                        }
+
+                        &.invalid {
+                            border-color: $warnRed;
+                        }
+
+
+
+                    }
+
+                    .btn-submit-pledge {
+                        @include cta-cyan(px-rem(108), px-rem(48), $font-sm);
+
+                        @include breakpoint-down(small) {
+                            display: inline;
+                            position: relative;
+                            float: right;
+                        }
+                    }
+
+                    .warn-pledge {
+                        color: $warnRed;
+                    }
+                }
+
+                .pledge-min {
+                    grid-area: pmin;
+                    margin: 0;
+                    color: $moderateCyan;
+                }
+
+                p {
+                    grid-area: pdescr;
+                }
+
+                .rewards-left {
+                    grid-area: pleft;
+                    align-self: stretch;
+                    justify-self: end;
+                    margin: 0;
+                }
+
+                &.selected {
+                    border-color: $moderateCyan;
+                    border-width: 2px;
+
+                    .pledge-input-div {
+                        @include flex(row, baseline, space-between);
+
+                        @include breakpoint-down(small) {
+                            display: block;
+                        }
+          
+                    }
+
+                }
+
+                input[type="radio"] {
+                    position: absolute;
+                    width: 0;
+                    opacity: 0;
+
+                    &:checked + label > .radio-dot {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 12px;
+                        height: 12px;
+                        background-color: $moderateCyan;
+                        border-radius: 6px;
+                    }
+
+                }
+
+                label {
+                    position: absolute;
+                    left: px-rem(-48);
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid grey;
+                    border-radius: 50%;
+                    cursor: pointer;
+
+                    @include breakpoint-down(small) {
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                }
+
+                .pledge-title-div {
+                    position: relative;
+                    grid-area: ptitle;
+                    cursor: pointer;
+
+                    .pledge-title {
+                        margin: 0;
+
+                        @include breakpoint-down(small) {
+                            margin-bottom: px-rem(6);
+                        }
+                    }
+
+                    &:hover {
+
+                        &> .pledge-title {
+                            color: $moderateCyan;
+                        }
+
+                        &> label {
+                            border-color: $moderateCyan;
+                        }
+                    }
+
+                    @include breakpoint-down(small) {
+                        padding-left: px-rem(40);
+                    }
+                }
+
+                &.sold-out {
+                    border-color: $mediumGray;
+                    h3, h4, p {
+                        filter: contrast(25%) brightness(125%);
+                    }
+                    pointer-events: none;
+                }
+
+                
+
+            }
+
+        }
+
+    }
+
+    &.modal-success {
+
+        .modal-thank-you {
+            position: absolute;
+            top: 460px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 542px;
+
+            @include flex(column, center, center);
+
+            @include breakpoint-down(small) {
+                padding-top: px-rem(30);
+                padding-bottom: px-rem(40);
+                top: 142px;
+                width: 86.7%;
+            }
+
+            .icon-check {
+                width: 90px;
+
+                @include breakpoint-down(small) {
+                    width: 64px;
+                }
+
+            }
+            
+            h1 {
+                margin-top: px-rem(52);
+                margin-bottom: 0;
+                text-align: center;
+
+                @include breakpoint-down(small) {
+                    margin-top: px-rem(24);
+                    font-size: $font-ml;
+                }
+
+            }
+
+            p {
+                font-size: $font-med;
+                line-height: 2em;
+                text-align: center;
+
+                @include breakpoint-down(small) {
+                    font-size: $font-sm;
+                    margin-top: px-rem(24);
+                    margin-bottom: px-rem(24);
+                }
+            }
+
+            .btn-gotit {
+                @include cta-cyan(px-rem(106), px-rem(48), $font-xs);
+            }
+        }
+    }
+}
+
+
+
